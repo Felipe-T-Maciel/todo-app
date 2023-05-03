@@ -1,0 +1,47 @@
+<body>
+  <H1>  
+  TODO APP
+</H1>
+
+<input 
+
+      placeholder="Tarefa" 
+      [(ngModel)]="Tarefa.nome">
+
+<input 
+
+      placeholder="Descrição" 
+      [(ngModel)]="Tarefa.desc">
+  
+<select name="cat" id="" [(ngModel)]="Categoria.categoria">
+  <option value=""></option>
+  <option value="To do">To do</option>
+  <option value="Doing">Doing</option>
+  <option value="Done">Done</option>
+</select>
+
+<button (click)="novaTarefa()">Cadastrar</button>
+
+<div>
+  <h4 *ngFor="let att of atts;index as indice;">
+    ID: {{indice}}
+    <br>
+    Tarefa: {{ att.nome }}
+    <br>
+    Descrição: {{ att.desc }}
+  </h4>
+
+  <h4 *ngFor="let cat of cats">
+    Categoria: {{ cat.categoria }}
+    <br>
+    
+    <select name="cat" id="" [(ngModel)]="Tarefa.categoria">
+      <option value=""></option>
+      <option value="To do">To do</option>
+      <option value="Doing">Doing</option>
+      <option value="Done">Done</option>
+    </select>
+    <hr>
+  </h4>
+</div>
+</body>
