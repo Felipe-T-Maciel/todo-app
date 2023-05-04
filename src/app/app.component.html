@@ -12,13 +12,6 @@
 
       placeholder="Descrição" 
       [(ngModel)]="Tarefa.desc">
-  
-<select name="cat" id="" [(ngModel)]="Categoria.categoria">
-  <option value=""></option>
-  <option value="To do">To do</option>
-  <option value="Doing">Doing</option>
-  <option value="Done">Done</option>
-</select>
 
 <button (click)="novaTarefa()">Cadastrar</button>
 
@@ -29,18 +22,15 @@
     Tarefa: {{ att.nome }}
     <br>
     Descrição: {{ att.desc }}
-  </h4>
-
-  <h4 *ngFor="let cat of cats">
-    Categoria: {{ cat.categoria }}
     <br>
-    
-    <select name="cat" id="" [(ngModel)]="Tarefa.categoria">
+    Categoria: <select name="" id="">
       <option value=""></option>
       <option value="To do">To do</option>
       <option value="Doing">Doing</option>
       <option value="Done">Done</option>
     </select>
+    <br>
+    <button (click)="Apaga(indice)">Apagar</button>
     <hr>
   </h4>
 </div>

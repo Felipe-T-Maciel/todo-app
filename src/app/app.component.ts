@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 interface Tarefa{
   nome: string
   desc: string
-  categoria: string
 }
 
 interface Categoria{
@@ -19,7 +18,7 @@ export class AppComponent {
   title = 'todo-app';
   nome: string = '';
   desc: string = '';
-  cats: Categoria[] = []
+  categoria: string = '';
   atts: Tarefa[] = []
 
   Tarefa={
@@ -27,30 +26,22 @@ export class AppComponent {
     desc: ''
   }
 
-  Categoria={
-    categoria:''
-  }
-
-  inputMudou(event):void{
-    console.log(event)
-  }
-
   novaTarefa():void{
     const att:Tarefa ={
       nome: this.Tarefa.nome,
-      desc: this.Tarefa.desc,
-      categoria: this.Tarefa.categoria
+      desc: this.Tarefa.desc
     }
     this.atts.push(att)
-    this.CategoriaFunc(att.categoria)
     this.Tarefa.nome = ''
     this.Tarefa.desc = ''
+    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
 
-  CategoriaFunc(categoria):void{
-    const cat: Categoria={
-      categoria: this.Tarefa.categoria
-    }
+  Apaga(indice){
+    console.log(indice);
+    this.atts.splice(indice, 1)
+    localStorage.removeItem("att")
+    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
 
 }
