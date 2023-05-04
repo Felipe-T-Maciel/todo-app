@@ -16,13 +16,15 @@ interface Tarefa{
 })
 export class AppComponent {
 
-  ngOnInit():void{
-    this.atts = JSON.parse(window.localStorage.getItem("Lista de tarefas"))
+  ngOnInit(): void {
+    const listaTarefas = window.localStorage.getItem('Lista de tarefas');
+    if (listaTarefas !== null) {
+      this.atts = JSON.parse(listaTarefas);
+    }
   }
 
   title = 'todo-app';
-  atts: Tarefa[] = []
-  
+  atts: Tarefa[] = [];
   Tarefa={
     nome: '',
     desc: '',
@@ -35,17 +37,17 @@ export class AppComponent {
       desc: this.Tarefa.desc,
       categoria: this.Tarefa.categoria
     }
-
     this.atts.push(att)
+    
     this.Tarefa.nome = null
     this.Tarefa.desc = null
     this.Tarefa.categoria = null
-    this.localStorage()
+    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
 
   Apaga(indice){
     this.atts.splice(indice, 1)
-    this.localStorage()
+    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
 
   localStorage(){

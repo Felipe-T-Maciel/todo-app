@@ -29,7 +29,7 @@
     <br>
     Categoria: {{att.categoria}}
     <br>
-    Atualizar categoria: <select name="" id="" [(ngModel)]="att.categoria">
+    Atualizar categoria: <select name="" id="" [(ngModel)]="att.categoria" (change)="localStorage()">
       <option  value="To do">To do</option>
       <option value="Doing">Doing</option>
       <option value="Done">Done</option>
