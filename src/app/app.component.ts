@@ -3,7 +3,6 @@ import { stringify } from '@angular/core/src/util';
 import { parse } from 'querystring';
 
 interface Tarefa{
-  id: number
   nome: string
   desc: string
   categoria: string
@@ -23,22 +22,15 @@ export class AppComponent {
 
   title = 'todo-app';
   atts: Tarefa[] = []
-  maiorLenght = 0
+  
   Tarefa={
-    id: 0,
     nome: '',
     desc: '',
     categoria: ''
   }
 
   novaTarefa():void{
-    
-    if(this.maiorLenght<this.atts.length){
-      this.maiorLenght = this.atts.length
-    }
-
     const att:Tarefa ={
-      id: this.Tarefa.id = this.maiorLenght+1,
       nome: this.Tarefa.nome,
       desc: this.Tarefa.desc,
       categoria: this.Tarefa.categoria
