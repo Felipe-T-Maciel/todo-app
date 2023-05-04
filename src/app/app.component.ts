@@ -3,6 +3,7 @@ import { stringify } from '@angular/core/src/util';
 import { parse } from 'querystring';
 
 interface Tarefa{
+  id: number
   nome: string
   desc: string
   categoria: string
@@ -21,20 +22,23 @@ export class AppComponent {
   }
 
   title = 'todo-app';
-  nome: string = '';
-  desc: string = '';
-  categoria: string = '';
   atts: Tarefa[] = []
-  indices: 0
-
+  maiorLenght = 0
   Tarefa={
+    id: 0,
     nome: '',
     desc: '',
     categoria: ''
   }
 
   novaTarefa():void{
+    
+    if(this.maiorLenght<this.atts.length){
+      this.maiorLenght = this.atts.length
+    }
+
     const att:Tarefa ={
+      id: this.Tarefa.id = this.maiorLenght+1,
       nome: this.Tarefa.nome,
       desc: this.Tarefa.desc,
       categoria: this.Tarefa.categoria
@@ -44,13 +48,15 @@ export class AppComponent {
     this.Tarefa.nome = null
     this.Tarefa.desc = null
     this.Tarefa.categoria = null
-    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
+    this.localStorage()
   }
 
   Apaga(indice){
-    this.indices
     this.atts.splice(indice, 1)
-    localStorage.removeItem("att")
+    this.localStorage()
+  }
+
+  localStorage(){
     localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
 

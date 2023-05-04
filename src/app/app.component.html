@@ -23,20 +23,20 @@
 
 <div>
   <h4 *ngFor="let att of atts;index as indice;">
-    Tarefa: {{ att.nome }}
+    Tarefa {{att.id}}: {{ att.nome }}
     <br>
     Descrição: {{ att.desc }}
     <br>
     Categoria: {{att.categoria}}
     <br>
-    Atualizar categoria: <select name="" id="" [(ngModel)]="att.categoria">
-      <option value="To do">To do</option>
+    Atualizar categoria: <select name="" id="" [(ngModel)]="att.categoria" (onchange)="localStorage()">
+      <option  value="To do">To do</option>
       <option value="Doing">Doing</option>
       <option value="Done">Done</option>
     </select>
     <br>
     <br>
-    <button (click)="Apaga(att.id)">Apagar</button>
+    <button (click)="Apaga(indice)">Apagar</button>
     <hr>
   </h4>
 </div>
