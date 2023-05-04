@@ -3,34 +3,40 @@
   TODO APP
 </H1>
 
-<input 
+<input class="inputTarefa"
 
       placeholder="Tarefa" 
       [(ngModel)]="Tarefa.nome">
 
-<input 
+<input class="inputDesc"
 
       placeholder="Descrição" 
       [(ngModel)]="Tarefa.desc">
+
+<select name="" id="" [(ngModel)]="Tarefa.categoria">
+  <option value="To do">To do</option>
+  <option value="Doing">Doing</option>
+  <option value="Done">Done</option>
+</select>
 
 <button (click)="novaTarefa()">Cadastrar</button>
 
 <div>
   <h4 *ngFor="let att of atts;index as indice;">
-    ID: {{indice}}
-    <br>
     Tarefa: {{ att.nome }}
     <br>
     Descrição: {{ att.desc }}
     <br>
-    Categoria: <select name="" id="">
-      <option value=""></option>
+    Categoria: {{att.categoria}}
+    <br>
+    Atualizar categoria: <select name="" id="" [(ngModel)]="att.categoria">
       <option value="To do">To do</option>
       <option value="Doing">Doing</option>
       <option value="Done">Done</option>
     </select>
     <br>
-    <button (click)="Apaga(indice)">Apagar</button>
+    <br>
+    <button (click)="Apaga(att.id)">Apagar</button>
     <hr>
   </h4>
 </div>
