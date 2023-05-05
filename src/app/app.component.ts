@@ -42,12 +42,12 @@ export class AppComponent {
     this.Tarefa.nome = null
     this.Tarefa.desc = null
     this.Tarefa.categoria = null
-    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
+    this.localStorage()
   }
 
   Apaga(indice){
     this.atts.splice(indice, 1)
-    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
+    this.localStorage()
   }
 
   localStorage(){

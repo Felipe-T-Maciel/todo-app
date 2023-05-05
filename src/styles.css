@@ -1,7 +1,96 @@
-body{
-    width: 100vh;
-    height: 100vh;
-    margin: none;
-    background-color: rgb(0, 0, 0);
+@import url('https://fonts.cdnfonts.com/css/lovelo?styles=25962');
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 100%;
+    background-color: black;
     color: white;
+    position: sticky;
+    top: 0;
+    font-family: 'Lovelo', sans-serif;
+}
+
+.kanban{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+}
+
+body{
+    background-image: url("./app/image/wallpaperflare.com_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Lovelo', sans-serif;
+
+}
+
+h1{
+    width: 25rem;
+}
+
+div{
+    word-wrap: break-word;
+}
+
+.inputs {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Lovelo', sans-serif;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.for{
+    width: 25rem;
+}
+
+.kanban>div>h1{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(161, 61, 161);
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+
+.if{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    color: white;
+    word-wrap: break-word;
+}
+
+input{
+    height: 3rem;
+    width: 20rem;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Lovelo', sans-serif;
+}
+
+.desc{
+    height: 5rem;
+    width: 30rem;
+}
+
+button{
+    font-family: 'Lovelo', sans-serif;
+}
+
+option, select{
+    font-family: 'Lovelo', sans-serif;
 }

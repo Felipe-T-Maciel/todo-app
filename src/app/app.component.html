@@ -1,43 +1,112 @@
 <body>
-  <H1>  
-  TODO APP
-</H1>
+  <header>
+    <h1>
+      To-do App
+    </h1>
+  </header>
 
-<input class="inputTarefa"
-
-      placeholder="Tarefa" 
-      [(ngModel)]="Tarefa.nome">
-
-<input class="inputDesc"
-
-      placeholder="Descrição" 
-      [(ngModel)]="Tarefa.desc">
-
-<select name="" id="" [(ngModel)]="Tarefa.categoria">
-  <option value="To do">To do</option>
-  <option value="Doing">Doing</option>
-  <option value="Done">Done</option>
-</select>
-
-<button (click)="novaTarefa()">Cadastrar</button>
-
-<div>
-  <h4 *ngFor="let att of atts;index as indice;">
-    Tarefa: {{ att.nome }}
-    <br>
-    Descrição: {{ att.desc }}
-    <br>
-    Categoria: {{att.categoria}}
-    <br>
-    Atualizar categoria: <select name="" id="" [(ngModel)]="att.categoria" (change)="localStorage()">
-      <option  value="To do">To do</option>
+<div class="center">
+  <div class="inputs">
+    <input class="inputTarefa" placeholder="Tarefa" [(ngModel)]="Tarefa.nome" >
+  
+    <input class="inputDesc" placeholder="Descrição" [(ngModel)]="Tarefa.desc" class="desc">
+  
+    <select name="" id="" [(ngModel)]="Tarefa.categoria">
+      <option value="To do">To do</option>
       <option value="Doing">Doing</option>
       <option value="Done">Done</option>
-    </select>
-    <br>
-    <br>
-    <button (click)="Apaga(indice)">Apagar</button>
-    <hr>
-  </h4>
+      </select>
+    <button (click)="novaTarefa()">Cadastrar</button>
 </div>
+</div>
+
+  <div class="kanban">
+
+    <div>
+      <h1>To do</h1>
+
+      <div *ngFor="let att of atts; index as indice;" class="for">
+
+        <div *ngIf="att.categoria === 'To do'" class="if">
+          <h3>
+            Tarefa: {{att.nome}}
+            <br>
+            desc: {{att.desc}}
+            <br>
+            categoria: {{att.categoria}}
+            <br>
+
+            <select name="" id="" [(ngModel)]="att.categoria">
+              <option value="To do">To do</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+
+            <br>
+
+            <button (click)="Apaga(indice)">Apagar</button>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h1>Doing</h1>
+
+      <div *ngFor="let att of atts; index as indice;" class="for">
+
+        <div *ngIf="att.categoria === 'Doing'" class="if">
+          <h3>
+            Tarefa: {{att.nome}}
+            <br>
+            desc: {{att.desc}}
+            <br>
+            categoria: {{att.categoria}}
+            <br>
+
+            <select name="" id="" [(ngModel)]="att.categoria">
+              <option value="To do">To do</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+
+            <br>
+
+            <button (click)="Apaga(indice)">Apagar</button>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <h1>Done</h1>
+
+      <div *ngFor="let att of atts; index as indice;" class="for">
+
+        <div *ngIf="att.categoria === 'Done'" class="if">
+          <h3>
+            Tarefa: {{att.nome}}
+            <br>
+            desc: {{att.desc}}
+            <br>
+            categoria: {{att.categoria}}
+            <br>
+
+            <select name="" id="" [(ngModel)]="att.categoria">
+              <option value="To do">To do</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+
+            <br>
+
+            <button (click)="Apaga(indice)">Apagar</button>
+          </h3>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </body>
