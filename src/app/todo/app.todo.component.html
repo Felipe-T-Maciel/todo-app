@@ -1,0 +1,49 @@
+<body>
+    <header>
+      <h1>
+        To-do App
+      </h1>
+    </header>
+  
+  <div class="center">
+    <div class="inputs">
+      <input class="inputTarefa" placeholder="Tarefa" [(ngModel)]="Tarefa.nome" >
+    
+      <input class="inputDesc" placeholder="Descrição" [(ngModel)]="Tarefa.desc" class="desc">
+    
+      <select name="" id="" [(ngModel)]="Tarefa.categoria">
+        <option value="att" *ngFor="let att of atts; index as indice;" >{{att.categoria}}</option>
+      </select>
+      <button (click)="novaTarefa()">Cadastrar</button>
+      <a href="http://localhost:4200/categoria"><button>categoria</button></a>
+
+  </div>
+  </div>
+  
+    <div class="kanban">
+  
+      <div *ngFor="let cat of categorias; index as indice;">
+        <h1>{{cat}}</h1>
+  
+        <div *ngFor="let att of atts; index as indice;" class="for">
+            <h3>
+              Tarefa: {{att.nome}}
+              <br>
+              desc: {{att.desc}}
+              <br>
+              categoria: {{att.categoria}}
+              <br>
+  
+              <select name="" id="" [(ngModel)]="att.categoria">
+                <option value="att" *ngFor="let att of atts; index as indice;" >{{att.categoria}}</option>
+              </select>
+  
+              <br>
+  
+              <button (click)="Apaga(indice)">Apagar</button>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
