@@ -12,10 +12,21 @@ header{
     font-family: 'Lovelo', sans-serif;
 }
 
+.titulo{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonRemove{
+    display: flex;
+    justify-content: center;
+}
+
 .kanban{
     margin-top: 5rem;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 *{
@@ -55,14 +66,34 @@ div{
 
 .for{
     width: 25rem;
+    color: white;
 }
 
-.kanban>div>h1{
+.kanban>div>div>div{
+    margin-top: 2rem;
+}
+
+.espaco{
+    margin-top: 5rem;
+    color: black;
+}
+
+h1{
     display: flex;
     justify-content: center;
     background-color: rgb(161, 61, 161);
     border: 2px solid black;
     border-radius: 20px;
+}
+
+
+h3{
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+h6{
+    color: purple;
 }
 
 
@@ -93,4 +124,14 @@ button{
 
 option, select{
     font-family: 'Lovelo', sans-serif;
+}
+
+.addCat{
+    display: flex;
+    justify-content: center;
+}
+
+.tarefasAdicionadas{
+    display: flex;
+    justify-content: space-around;
 }

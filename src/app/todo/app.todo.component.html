@@ -1,49 +1,47 @@
 <body>
-    <header>
-      <h1>
-        To-do App
-      </h1>
-    </header>
-  
   <div class="center">
     <div class="inputs">
-      <input class="inputTarefa" placeholder="Tarefa" [(ngModel)]="Tarefa.nome" >
-    
-      <input class="inputDesc" placeholder="Descrição" [(ngModel)]="Tarefa.desc" class="desc">
-    
-      <select name="" id="" [(ngModel)]="Tarefa.categoria">
-        <option value="att" *ngFor="let att of atts; index as indice;" >{{att.categoria}}</option>
-      </select>
-      <button (click)="novaTarefa()">Cadastrar</button>
-      <a href="http://localhost:4200/categoria"><button>categoria</button></a>
+      <input class="inputTarefa" placeholder="Tarefa" [(ngModel)]="Tarefa.nome">
 
-  </div>
+      <input class="inputDesc" placeholder="Descrição" [(ngModel)]="Tarefa.desc" class="desc">
+
+      <select name="" id="" [(ngModel)]="Tarefa.categoria">
+        <option *ngFor="let car of categorias;">{{car}}</option>
+      </select>
+      <button (click)="novaTarefa()">Adicionar Tarefa</button>
+
+    </div>
   </div>
   
+  <div>
     <div class="kanban">
-  
-      <div *ngFor="let cat of categorias; index as indice;">
-        <h1>{{cat}}</h1>
-  
+
+      <div *ngFor="let cat of categorias;">
+        <h1 class="espaco">{{cat}}</h1>
+
         <div *ngFor="let att of atts; index as indice;" class="for">
+          <div *ngIf="att.categoria === cat">
             <h3>
-              Tarefa: {{att.nome}}
-              <br>
-              desc: {{att.desc}}
-              <br>
-              categoria: {{att.categoria}}
-              <br>
-  
-              <select name="" id="" [(ngModel)]="att.categoria">
-                <option value="att" *ngFor="let att of atts; index as indice;" >{{att.categoria}}</option>
+              <h3>Tarefa: <h6>{{att.nome}}</h6></h3>
+              <hr>
+              <h3>desc: <h6>{{att.desc}}</h6></h3>
+              <hr>
+              <h3>categoria: <h6>{{att.categoria}}</h6></h3>
+              <hr>
+
+              <select name="" id="" [(ngModel)]="att.categoria" (change)="localStorage()">
+                <option *ngFor="let car of categorias;">{{car}}</option>
               </select>
-  
+
               <br>
-  
+
               <button (click)="Apaga(indice)">Apagar</button>
+              <br>
+              <hr>
             </h3>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>

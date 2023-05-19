@@ -30,10 +30,13 @@ export class TodoComponent {
   Tarefa={
     nome: '',
     desc: '',
-    categoria: this.categoriasLocal
+    categoria: ''
   }
 
   novaTarefa():void{
+    if(!this.Tarefa.nome || !this.Tarefa.categoria){
+      return
+    }
     const att:Tarefa ={
       nome: this.Tarefa.nome,
       desc: this.Tarefa.desc,
@@ -55,5 +58,7 @@ export class TodoComponent {
   localStorage(){
     localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
+
+
 
 }

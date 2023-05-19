@@ -1,22 +1,19 @@
 <body>
-    <header>
-        <h1 class="titulo">TODO APP</h1>
-    </header>
     <br>
-    <div id="linhaDeAdicionarCategorias">
+    <div id="linhaDeAdicionarCategorias" class="addCat">
         <input maxLength="15" placeholder="Nome da categoria" [(ngModel)]="categoria">
-        <button (click)="cadastrarCategoria()">Cadastrar</button>
-        <a href="http://localhost:4200/todo"><button>Add Tarefa</button></a>
     </div>
-    <div class="tarefasAdicionadas" *ngFor="let cat of categorias; index as indice;">
-        <div class="tarefa">
-            <div>
-                <h3 style="color: white;">
-                    Nome da Categoria: {{cat}}
-                    <br>
-                    <button (click)="removerCat(indice)">remover</button>
-                </h3>
-            </div>
+    <div class="addCat">
+        <button (click)="cadastrarCategoria()">Cadastrar</button>
+    </div>
+
+    <div class="kanban">
+        <div *ngFor="let cat of categorias; index as indice;" class="for">
+            <h3 style="color: white;">
+                <h1 class="espaco">{{cat}}</h1>
+                <br>
+                <button class="buttonRemove" (click)="removerCat(indice)">remover</button>
+            </h3>
         </div>
     </div>
 </body>
