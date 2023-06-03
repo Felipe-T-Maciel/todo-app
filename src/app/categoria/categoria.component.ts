@@ -14,6 +14,8 @@ export class CategoriaComponent {
   categorias: string[] = []
   categoria: string
   atts: Tarefa[] = [];
+  catDrag: string = '';
+
 
 
   cadastrarCategoria(): void {

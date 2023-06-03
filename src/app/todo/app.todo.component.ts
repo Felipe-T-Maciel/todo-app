@@ -15,6 +15,8 @@ interface Tarefa{
 export class TodoComponent {
   categorias: string[] = []
   categoria: string;
+  categoriaDrop: string
+  tarefaDrop: Tarefa
 
   ngOnInit(): void {
     const listaTarefas = window.localStorage.getItem('Lista de tarefas') || '[]';
@@ -58,7 +60,16 @@ export class TodoComponent {
   localStorage(){
     localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
   }
+  
+  allowDrag(cat){
+   this.tarefaDrop.categoria = cat
+   this.localStorage()
+  }
 
+  drag(att){
+   this.tarefaDrop = att  
+   this.localStorage()
+  }
 
 
 }
