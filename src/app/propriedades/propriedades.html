@@ -1,0 +1,33 @@
+<body>
+    <br>
+    <div id="linhaDeAdicionarCategorias" class="addCat">
+        <input maxLength="15" placeholder="Nome da Propriedade" [(ngModel)]="categoria">
+        <select name="" id="selector" [(ngModel)]="selector">
+            <option value="1">Seleção</option>
+            <option value="2">Numero</option>
+            <option value="3">Texto</option>
+        </select>
+        <div *ngIf="selector==='Seleção'">
+            <input maxLength="15" placeholder="Nome da Propriedade">
+        </div>
+        <div *ngIf="selector===2">
+            <h1>gay2</h1>
+        </div>
+        <div *ngIf="selector===3">
+            <h1>gay3</h1>
+        </div>
+    </div>
+    <div class="addCat">
+        <button (click)="cadastrarCategoria()">Propriedades</button>
+    </div>
+
+    <div class="kanban">
+        <div *ngFor="let pr of propriedades; index as indice;" class="for">
+            <h3 style="color: white;">
+                <h1 class="espaco">{{cat}}</h1>
+                <br>
+                <button class="buttonRemove" (click)="removerCat(indice)">remover</button>
+            </h3>
+        </div>
+    </div>
+</body>
