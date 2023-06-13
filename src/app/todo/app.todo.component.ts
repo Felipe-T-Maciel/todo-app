@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { stringify } from '@angular/core/src/util';
-import { parse } from 'querystring';
+import { CategoriaComponent } from '../categoria/categoria.component';
 
 interface Tarefa{
   nome: string
@@ -17,6 +16,7 @@ export class TodoComponent {
   categoria: string;
   categoriaDrop: string
   tarefaDrop: Tarefa
+  indexDrop: number
 
   ngOnInit(): void {
     const listaTarefas = window.localStorage.getItem('Lista de tarefas') || '[]';
@@ -69,6 +69,14 @@ export class TodoComponent {
   drag(att){
    this.tarefaDrop = att  
    this.localStorage()
+  }
+
+
+  drop(event: Event, indice){
+    event.preventDefault()
+    this.atts.splice(this.atts.indexOf(this.tarefaDrop), 1)
+    this.atts.splice(indice,0,this.tarefaDrop)
+    this.localStorage()
   }
 
 
