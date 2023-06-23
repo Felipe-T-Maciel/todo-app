@@ -8,7 +8,7 @@
       <select name="" id="" [(ngModel)]="Tarefa.categoria">
         <option *ngFor="let car of categorias;">{{car}}</option>
       </select>
-      <button (click)="novaTarefa()">Adicionar Tarefa</button>
+      <button (click)="novaTarefa()" [disabled]="!hasPermission('Add')">Adicionar Tarefa</button>
 
     </div>
   </div>
