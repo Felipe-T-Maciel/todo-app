@@ -1,7 +1,28 @@
 <body>
-    <header></header>
-    <main>
-        <input type="text" placeholder="" [(ngModel)]="id">
-        <button (click)="login(id)">Entrar</button>
-    </main>
+    <header class="titulo">
+        <h1>TODO APP</h1>
+      </header>
+    <div class="a">
+    
+        <div class="containerInputs">
+            <h1 class="login">LOGIN</h1>
+            <div class="inputLogin">
+                <input type="text" placeholder="ID" [(ngModel)]="id">
+                <input type="text" placeholder="password" [(ngModel)]="senha">
+            </div>
+            <div>
+                <a href="http://localhost:4200/cadastro">
+                    <h6 style="color: rgb(48, 48, 48);">Não possui login? Cadastre-se aqui</h6>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="confirmarLogin">
+        <button (click)="login(id, senha)">Entrar</button>
+    </div>
+
 </body>

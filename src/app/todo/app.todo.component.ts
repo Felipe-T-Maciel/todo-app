@@ -98,41 +98,41 @@ export class TodoComponent {
     this.localStorage()
   }
 
-  adicionarTarefa(): void {
-    if (!this.hasPermission('Add')) {
-      alert('Não pode cadastrar');
-      return;
-    }
-    alert('Pode cadastrar');
-  }
+  // adicionarTarefa(): void {
+  //   if (!this.hasPermission('Add')) {
+  //     alert('Não pode cadastrar');
+  //     return;
+  //   }
+  //   alert('Pode cadastrar');
+  // }
 
-  editarTarefa(): void {
-    if (!this.hasPermission('Edit')) {
-      alert('Não pode cadastrar');
-      return;
-    }
-    alert('Pode cadastrar');
-  }
+  // editarTarefa(): void {
+  //   if (!this.hasPermission('Edit')) {
+  //     alert('Não pode cadastrar');
+  //     return;
+  //   }
+  //   alert('Pode cadastrar');
+  // }
 
-  removerTarefa(): void {
-    if (!this.hasPermission('Remove')) {
-      alert('Não pode cadastrar');
-      return;
-    }
-    alert('Pode cadastrar');
-  }
+  // removerTarefa(): void {
+  //   if (!this.hasPermission('Remove')) {
+  //     alert('Não pode cadastrar');
+  //     return;
+  //   }
+  //   alert('Pode cadastrar');
+  // }
 
-  hasPermission(permission: string): boolean {
-    return this.user.cardPermissions.some((cardPermission) => {
-      return cardPermission === permission;
-    });
-  }
+  // hasPermission(permission: string): boolean {
+  //   return this.user.cardPermissions.some((cardPermission) => {
+  //     return cardPermission === permission;
+  //   });
+  // }
 
-  private getUsuarioLogado(): User {
-    return this.users.find((user) => {
-      return user.id === this.userId
-    }) as User;
-  }
+  // private getUsuarioLogado(): User {
+  //   return this.users.find((user) => {
+  //     return user.id === this.userId
+  //   }) as User;
+  // }
 
 
 }

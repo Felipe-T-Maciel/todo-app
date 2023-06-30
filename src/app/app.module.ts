@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardServices } from 'src/services/auth-guard.service';
+import { cadastroComponent } from './cadastro/cadastro.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { AuthGuardServices } from 'src/services/auth-guard.service';
     TodoComponent,
     CategoriaComponent,
     PropriedadeComponent,
-    LoginComponent
+    LoginComponent,
+    cadastroComponent,
+    HeaderComponent
+    
   ],
   imports: [
     BrowserModule,

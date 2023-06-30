@@ -82,7 +82,6 @@ h1{
     display: flex;
     justify-content: center;
     background-color: rgb(161, 61, 161);
-    border: 2px solid black;
     border-radius: 20px;
 }
 

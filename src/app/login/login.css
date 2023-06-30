@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.login{
+    border: 1px solid black;
+    background-color: rgb(161, 61, 161);
+}
+
+.a{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.inputLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.containerInputs{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    background-color: rgb(161, 61, 161);
+    width: 500px;
+    height: 400px;
+    border-radius: 35px;
+}
+
+input{
+    background-color: transparent;
+    text-decoration: none;
+    text-shadow: none;
+    
+}
+
+button {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    background-color: rgb(161, 61, 161);
+    color: black;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(161, 61, 161);
+}
+
+.confirmarLogin{
+    display: flex;
+    justify-content: center;
+}
+
+input::placeholder {
+    color: rgb(0, 0, 0);
+  }

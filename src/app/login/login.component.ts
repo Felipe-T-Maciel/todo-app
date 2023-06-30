@@ -4,11 +4,11 @@ import { UserRepository } from "src/repositories/user.repository";
 
 @Component({
     templateUrl: 'login.component.html',
+    styleUrls: ['login.css']
 })
 
 
 export class LoginComponent{
-    private userId: string = 'diogo.defante';
     private users: User[] = [];
     user!: User;
 
@@ -17,21 +17,18 @@ export class LoginComponent{
       ) {
           this.userRepository.getUsers().subscribe({
             next: (value) => {
-                console.log(value)
+                this.users = value
             },
           })
         }
 
-    login(id){
-        let procura: boolean = true
-        if(procura){
-            this.users.forEach(element => {
-                if(element.id === id){
-                    this.userRepository.setLogado(element)
-                    window.location.replace('http://localhost:4200/todo')
-                }
-            });
-        }
+    login(id, senha){
+        this.users.forEach(element => {
+            if(element.id === id && element.senha === senha){
+                console.log(element)
+                window.location.replace('http://localhost:4200/todo')
+            }
+        });
     }
 
 }
