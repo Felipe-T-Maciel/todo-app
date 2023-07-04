@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/models/users/user';
-import { UserRepository } from 'src/repositories/user.repository';
-import { CategoriaComponent } from '../categoria/categoria.component';
+import { UserRepository } from 'src/repositories/user.repository';  
 
 interface Tarefa{
   nome: string

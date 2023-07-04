@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardServices } from 'src/services/auth-guard.service';
 import { cadastroComponent } from './cadastro/cadastro.component';
 import { HeaderComponent } from './header/header.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     cadastroComponent,
     HeaderComponent
-    
+  
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   providers: [
     UserRepository,
-    AuthGuardServices
+    AuthGuardServices,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

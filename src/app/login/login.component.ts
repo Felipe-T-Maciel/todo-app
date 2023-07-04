@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { User } from "src/models/users/user";
 import { UserRepository } from "src/repositories/user.repository";
+import { AuthGuardServices } from "src/services/auth-guard.service";
 
 @Component({
     templateUrl: 'login.component.html',

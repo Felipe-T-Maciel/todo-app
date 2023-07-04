@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { CookieService } from 'ngx-cookie-service';
 
 interface Tarefa{
   nome: string
@@ -10,6 +11,9 @@ interface Tarefa{
   templateUrl: 'categoria.component.html',
 })
 export class CategoriaComponent {
+
+  
+
   title = 'todo-app';
   categorias: string[] = []
   categoria: string
