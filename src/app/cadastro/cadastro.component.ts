@@ -21,11 +21,8 @@ export class cadastroComponent{
           })
      }
 
-
-
-
     id: string
-    nome: string
+    name: string
     senha: string
     email: string
 
@@ -34,7 +31,7 @@ export class cadastroComponent{
         let verificaUser: boolean = true
         const user: User = {
             id: this.id,
-            name: this.nome,
+            name: this.name,
             senha: this.senha,
             email: this.email
         }
@@ -42,23 +39,13 @@ export class cadastroComponent{
         if(this.id === '' || this.id === null || this.id === undefined){
             verificaUser = false
             alert('user nulo')
-            this.id = ''
-            this.nome = ''
-            this.senha = ''
-            this.email = ''
-            return
         }
         
         console.log(this.id)
             this.users.forEach(element => {
-                if(element.id === this.id){
+                if(element.id === this.id || element.email === this.email){
                     alert('User ja cadastrado')
                     verificaUser = false
-                    this.id = ''
-                    this.nome = ''
-                    this.senha = ''
-                    this.email = ''
-                    return
                 }
             });
         
@@ -68,6 +55,11 @@ export class cadastroComponent{
             console.log(user)
             window.location.replace('http://localhost:4200/login')
         }
+
+        this.id = ''
+        this.name = ''
+        this.senha = ''
+        this.email = ''
 
     }
 

@@ -1,7 +1,9 @@
 import { Component } from "@angular/core";
 import { User } from "src/models/users/user";
 import { UserRepository } from "src/repositories/user.repository";
-import { AuthGuardServices } from "src/services/auth-guard.service";
+import { AuthGuardAutorize } from "src/services/auth-Guard/auth-guard-Autorize.service";
+import { AuthGuardServicesGuard } from "src/services/auth-Guard/auth-guard-services.guard";
+import { LogadoComponent } from "src/services/login.service";
 
 @Component({
     templateUrl: 'login.component.html',
@@ -13,8 +15,11 @@ export class LoginComponent{
     private users: User[] = [];
     user!: User;
 
+
     constructor(
-        private userRepository: UserRepository
+        private userRepository: UserRepository,
+        private logado: LogadoComponent,
+        private can: AuthGuardAutorize
       ) {
           this.userRepository.getUsers().subscribe({
             next: (value) => {
@@ -27,7 +32,15 @@ export class LoginComponent{
         this.users.forEach(element => {
             if(element.id === id && element.senha === senha){
                 console.log(element)
-                window.location.replace('http://localhost:4200/todo')
+                
+                if(this.logado){
+                    this.logado.deleteCookie('logado')
+                }
+                this.logado.setCookie('logado',JSON.stringify(element))
+            
+                if(this.can.autorizado()){
+                    window.location.replace('http://localhost:4200/todo')
+                }
             }
         });
     }

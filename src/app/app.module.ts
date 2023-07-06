@@ -9,10 +9,11 @@ import { PropriedadeComponent } from './propriedades/propriedades.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthGuardServices } from 'src/services/auth-guard.service';
 import { cadastroComponent } from './cadastro/cadastro.component';
 import { HeaderComponent } from './header/header.component';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'src/services/cookies.service';
+import { LogadoComponent } from 'src/services/login.service';
+import { AuthGuardServicesGuard } from 'src/services/auth-Guard/auth-guard-services.guard';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,9 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   providers: [
     UserRepository,
-    AuthGuardServices,
-    CookieService
+    AuthGuardServicesGuard,
+    CookieService,
+    LogadoComponent
   ],
   bootstrap: [AppComponent]
 })

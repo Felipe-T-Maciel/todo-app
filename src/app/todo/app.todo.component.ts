@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/models/users/user';
 import { UserRepository } from 'src/repositories/user.repository';  
+import { CookieService } from 'src/services/cookies.service';
 
 interface Tarefa{
   nome: string
@@ -19,7 +20,8 @@ export class TodoComponent {
   user!: User;
 
   constructor(
-    private userRepository: UserRepository
+    private userRepository: UserRepository,
+    private cookie: CookieService
   ) {
       this.userRepository.getUsers().subscribe({
         next: (value) => {
@@ -37,13 +39,15 @@ export class TodoComponent {
   indexDrop: number
 
   ngOnInit(): void {
-    const listaTarefas = window.localStorage.getItem('Lista de tarefas') || '[]';
+    const listaTarefas = this.cookie.getCookie('Lista de tarefas') || '[]';
       this.atts = JSON.parse(listaTarefas);
 
-    const categoria = window.localStorage.getItem('categorias') || '[]';
+    const categoria = this.cookie.getCookie('categorias') || '[]';
     this.categorias = JSON.parse(categoria);
+
+    this.categoriasLocal = this.cookie.getCookie('categorias')
   }
-  categoriasLocal = window.localStorage.getItem('categorias');
+  categoriasLocal: any;
 
   title = 'todo-app';
   atts: Tarefa[] = [];
@@ -67,26 +71,27 @@ export class TodoComponent {
     this.Tarefa.nome = null
     this.Tarefa.desc = null
     this.Tarefa.categoria = null
-    this.localStorage()
+    this.Cookie()
   }
 
   Apaga(indice){
     this.atts.splice(indice, 1)
-    this.localStorage()
+    this.cookie.deleteCookie('Lista de Tarefas')
+    this.Cookie()
   }
 
-  localStorage(){
-    localStorage.setItem("Lista de tarefas", JSON.stringify(this.atts))
+  Cookie(){
+    this.cookie.setCookie('Lista de Tarefas', JSON.stringify(this.atts), 1)
   }
   
   allowDrag(cat){
    this.tarefaDrop.categoria = cat
-   this.localStorage()
+   this.Cookie()
   }
 
   drag(att){
    this.tarefaDrop = att  
-   this.localStorage()
+   this.Cookie()
   }
 
 
@@ -94,7 +99,7 @@ export class TodoComponent {
     event.preventDefault()
     this.atts.splice(this.atts.indexOf(this.tarefaDrop), 1)
     this.atts.splice(indice,0,this.tarefaDrop)
-    this.localStorage()
+    this.Cookie()
   }
 
   // adicionarTarefa(): void {

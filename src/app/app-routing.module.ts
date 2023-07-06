@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { CategoriaComponent } from "src/app/categoria/categoria.component";
-import { AuthGuardServices } from "src/services/auth-guard.service";
+import { AuthGuardServicesGuard } from "src/services/auth-Guard/auth-guard-services.guard";
 import { AppComponent } from "./app.component";
 import { cadastroComponent } from "./cadastro/cadastro.component";
 import { LoginComponent } from "./login/login.component";
@@ -11,17 +11,19 @@ import { TodoComponent } from "./todo/app.todo.component";
 const rotas:Route[] = [
     {
         path: 'categoria',
-        component: CategoriaComponent
+        component: CategoriaComponent,
+        canActivate: [AuthGuardServicesGuard]
     },
     {
         path: 'todo',
         component: TodoComponent,
-        canActivate: [AuthGuardServices]
+        canActivate: [AuthGuardServicesGuard]
         
     },
     {
         path: 'propriedades',
-        component: PropriedadeComponent
+        component: PropriedadeComponent,
+        canActivate: [AuthGuardServicesGuard]
     },
 
     {
