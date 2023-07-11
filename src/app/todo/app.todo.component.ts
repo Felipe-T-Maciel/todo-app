@@ -30,6 +30,7 @@ export class TodoComponent {
       })
     }
 
+    logado: User
 
 
   categorias: string[] = []
@@ -39,8 +40,9 @@ export class TodoComponent {
   indexDrop: number
 
   ngOnInit(): void {
-    const listaTarefas = this.cookie.getCookie('Lista de tarefas') || '[]';
-      this.atts = JSON.parse(listaTarefas);
+    const listaTarefas = this.cookie.getCookie('Lista de Tarefas') || '[]';
+    this.atts = JSON.parse(listaTarefas);
+
 
     const categoria = this.cookie.getCookie('categorias') || '[]';
     this.categorias = JSON.parse(categoria);
@@ -81,6 +83,7 @@ export class TodoComponent {
   }
 
   Cookie(){
+    this.cookie.deleteCookie('Lista de Tarefas')
     this.cookie.setCookie('Lista de Tarefas', JSON.stringify(this.atts), 1)
   }
   

@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { User } from "src/models/users/user";
 import { UserRepository } from "src/repositories/user.repository";
+import { CookieService } from "src/services/cookies.service";
 
 @Component({
     templateUrl: 'cadastro.html',
@@ -13,13 +14,17 @@ export class cadastroComponent{
     private users: User[] = [];
     user!: User;
     private userRepository: UserRepository
-    constructor(private http: HttpClient, userRepository: UserRepository) {
+    constructor(private http: HttpClient,private logado: CookieService, userRepository: UserRepository) {
         userRepository.getUsers().subscribe({
             next: (value) => {
                 this.users = value
             },
           })
      }
+
+    ngOnInit(){
+        this.logado.deleteCookie('logado')
+    }
 
     id: string
     name: string
@@ -36,18 +41,26 @@ export class cadastroComponent{
             email: this.email
         }
 
-        if(this.id === '' || this.id === null || this.id === undefined){
+        if(this.id === '' || this.id === null || this.id === undefined ||
+            this.senha === '' || this.senha === null || 
+            this.senha === undefined || this.name === '' ||
+            this.name === null || this.name === undefined ||
+            this.email === '' || this.email === null || 
+            this.email === undefined)
+        {
             verificaUser = false
             alert('user nulo')
         }
         
         console.log(this.id)
-            this.users.forEach(element => {
-                if(element.id === this.id || element.email === this.email){
-                    alert('User ja cadastrado')
-                    verificaUser = false
-                }
-            });
+            if(verificaUser){
+                this.users.forEach(element => {
+                    if(element.id === this.id || element.email === this.email){
+                        alert('User ja cadastrado')
+                        verificaUser = false
+                    }
+                });
+            }
         
         if(verificaUser === true){
             alert("Cadastrado com sucesso")

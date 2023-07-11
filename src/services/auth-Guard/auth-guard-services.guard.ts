@@ -15,6 +15,9 @@ export class AuthGuardServicesGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return this.autorize.autorizado();
+    console.log(this.autorize.autorizado())
+      return this.autorize.autorizado();
   }
+
+
 }

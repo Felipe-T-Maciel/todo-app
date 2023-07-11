@@ -40,7 +40,7 @@ const rotas:Route[] = [
 
     {
         path: '',
-        redirectTo: 'cadastro',
+        redirectTo: 'login',
         pathMatch: 'full'
     }
 ]

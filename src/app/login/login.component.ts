@@ -1,9 +1,7 @@
 import { Component } from "@angular/core";
 import { User } from "src/models/users/user";
 import { UserRepository } from "src/repositories/user.repository";
-import { AuthGuardAutorize } from "src/services/auth-Guard/auth-guard-Autorize.service";
-import { AuthGuardServicesGuard } from "src/services/auth-Guard/auth-guard-services.guard";
-import { LogadoComponent } from "src/services/login.service";
+import { CookieService } from "src/services/cookies.service";
 
 @Component({
     templateUrl: 'login.component.html',
@@ -18,8 +16,7 @@ export class LoginComponent{
 
     constructor(
         private userRepository: UserRepository,
-        private logado: LogadoComponent,
-        private can: AuthGuardAutorize
+        private logado: CookieService
       ) {
           this.userRepository.getUsers().subscribe({
             next: (value) => {
@@ -36,13 +33,15 @@ export class LoginComponent{
                 if(this.logado){
                     this.logado.deleteCookie('logado')
                 }
-                this.logado.setCookie('logado',JSON.stringify(element))
-            
-                if(this.can.autorizado()){
-                    window.location.replace('http://localhost:4200/todo')
-                }
+                this.logado.setCookie('logado',JSON.stringify(element),1)
+                
+                window.location.replace('http://localhost:4200/todo')
+                
             }
         });
     }
 
+    ngOnInit(){
+        this.logado.deleteCookie('logado')
+    }
 }

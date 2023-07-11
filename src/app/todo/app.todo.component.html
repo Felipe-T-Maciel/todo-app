@@ -23,11 +23,11 @@
         <div *ngFor="let att of atts; index as indice;" class="for">
           <div *ngIf="att.categoria === cat" draggable="true" (dragstart)="drag(att)" (drop)="dropTarefa($event, indice)" (dragover)="drop($event, indice)">
             <h3>
-              <h3>Tarefa: <h6>{{att.nome}}</h6></h3>
+              <h3>Tarefa: <h4>{{att.nome}}</h4></h3>
               <hr>
-              <h3>desc: <h6>{{att.desc}}</h6></h3>
+              <h3>desc: <h4>{{att.desc}}</h4></h3>
               <hr>
-              <h3>categoria: <h6>{{att.categoria}}</h6></h3>
+              <h3>categoria: <h4>{{att.categoria}}</h4></h3>
               <hr>
 
               <select name="" id="" [(ngModel)]="att.categoria" (change)="localStorage()">

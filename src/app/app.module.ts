@@ -12,8 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { cadastroComponent } from './cadastro/cadastro.component';
 import { HeaderComponent } from './header/header.component';
 import { CookieService } from 'src/services/cookies.service';
-import { LogadoComponent } from 'src/services/login.service';
 import { AuthGuardServicesGuard } from 'src/services/auth-Guard/auth-guard-services.guard';
+import { AuthGuardAutorize } from 'src/services/auth-Guard/auth-guard-Autorize.service';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,7 @@ import { AuthGuardServicesGuard } from 'src/services/auth-Guard/auth-guard-servi
   providers: [
     UserRepository,
     AuthGuardServicesGuard,
-    CookieService,
-    LogadoComponent
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

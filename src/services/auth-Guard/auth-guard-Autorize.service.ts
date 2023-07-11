@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { User } from 'src/models/users/user';
-import { UserRepository } from 'src/repositories/user.repository';
-import { LogadoComponent } from '../login.service';
-import { AuthGuardServicesGuard } from './auth-guard-services.guard';
+import { CookieService } from '../cookies.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardAutorize{
     constructor(
-        private cookieLogado: LogadoComponent,
+        private cookieLogado: CookieService,
+        private router: Router
     ){
       const logado = cookieLogado.getCookie('logado') || null
       this.logado = JSON.parse(logado)
+      console.log(logado)
     }
 
     logado: User
@@ -21,8 +22,13 @@ export class AuthGuardAutorize{
       if(this.logado){
         return true
       }
-      else{
-        return false
-      }
+      window.location.replace("http://localhost:4200/login")
+      return false
     }
+
+    
+
+    
+
+    
 }
